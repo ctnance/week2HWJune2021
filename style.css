@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+:root {
+    font-size: 16px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    background-color: lemonchiffon;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+#css-carousel, #js-carousel {
+    background-color: white;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    padding: 2em;
+    position: relative;
+}
+
+/* .carousel-window {
+    overflow: hidden;
+} */
+
+h1 {
+    margin: 0;
+}
+
+button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 3rem;
+    text-shadow: 3px 3px hsla(0, 0%, 20%, 0.5);
+}
+
+button:hover {
+    /* color: hsl(0, 0%, 80%); */
+    transform: translateY(2px);
+    text-shadow: 1px 1px hsla(0, 0%, 20%, 0.5);
+}
+
+button:active {
+    color: hsl(0, 0%, 50%);
+}
+
+#css-imgSlider {
+    /* animation: 10s slidingAnimation infinite; */
+    z-index: 1000;
+}
+
+.left-btn {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+}
+
+.right-btn {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+}
+
+/* Keyframes */
+
+@keyframes slidingAnimation {
+    0% { transition: ease-in; transform: translateY(0); }
+    20% { transition: ease-in; transform: translateY(-300px); }
+    40% { transition: ease-in; transform: translateY(-600px); }
+    60% { transition: ease-in; transform: translateY(-900px); }
+    80% { transition: ease-in; transform: translateY(-1200px); }
+    100% { transition: ease-in; transform: translateY(-1500px); }
+}
