@@ -1,4 +1,6 @@
 const imgSize = 300;
+let posX = 0;
+let maxPosX = 0;
 const imgs = [
     `https://picsum.photos/${imgSize}?random=1`, 
     `https://picsum.photos/${imgSize}?random=2`, 
@@ -21,7 +23,8 @@ const loadImages = () => {
         img.src = imgs[i];
         img.alt = `image${i}`;
         
-        i < imgs.length/2 ? cssImageSlider.appendChild(img) : jsImageSlider.appendChild(img);
+        maxPosX = (imgs.length/2) * imgSize;
+        i < (maxPosX/imgSize) ? cssImageSlider.appendChild(img) : jsImageSlider.appendChild(img);
     }
     console.log("CSS Images: " + cssImageSlider.childElementCount);
     console.log("JS Images: " + jsImageSlider.childElementCount);
@@ -49,14 +52,15 @@ const setCarouselStyle = () => {
     for (let i = 0; i < carouselWindows.length; i++) {
         carouselWindows[i].style.width = `${imgSize}px`;
         carouselWindows[i].style.height = `${imgSize}px`;
-        console.log(carouselWindows[i].style)
+        console.log("WINDOWS STYLE" + carouselWindows[i].style)
     }
 }
 
 const nextSlide = () => {
-    console.log(imgSize);
-    let carousel = document.getElementById("js-imgSlider");
-    carousel.style.transform -= `translateX(${imgSize}px);`
+    posX -= imgSize;
+    if (posX < -maxPosX) { posX = 0; }
+    let slider = document.getElementById("js-imgSlider");
+    slider.style.transform = `translateX(${imgSize}px);`
 }
 
 const prevSlide = () => {

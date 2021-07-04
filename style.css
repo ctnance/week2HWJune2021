@@ -8,15 +8,13 @@ html {
     box-sizing: border-box;
 }
 
-html,
 body {
-    height: 100%;
-    margin: 0;
-}
-
-body {
-    margin: 0;
     background-color: lemonchiffon;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
 * {
@@ -24,12 +22,11 @@ body {
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 1em;
+    box-shadow: 8px 8px 16px hsla(0, 0%, 20%, 0.5);
     text-align: center;
-    height: 100vh;
+    background-color: white;
+    padding: 2em;
 }
 
 .carousel-window {
@@ -38,13 +35,15 @@ section {
 }
 
 #css-carousel, #js-carousel {
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 300px;
-    padding: 2em;
     position: relative;
+}
+
+#css-carousel {
+    margin-bottom: 2em;
 }
 
 h1 {
@@ -61,12 +60,12 @@ button {
 
 button:hover {
     color: hsl(0, 0%, 80%);
-    transform: translateY(2px);
-    text-shadow: 1px 1px hsla(0, 0%, 20%, 0.5);
 }
 
 button:active {
     color: hsl(0, 0%, 50%);
+    transform: translateY(2px);
+    text-shadow: 1px 1px hsla(0, 0%, 20%, 0.5);
 }
 
 #css-imgSlider, #js-imgSlider {
@@ -80,13 +79,13 @@ button:active {
 
 .left-btn {
     position: absolute;
-    left: 10%;
+    left: 5%;
     top: 50%;
 }
 
 .right-btn {
     position: absolute;
-    right: 10%;
+    right: 5%;
     top: 50%;
 }
 
