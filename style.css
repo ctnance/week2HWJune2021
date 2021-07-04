@@ -79,7 +79,11 @@ button:active {
 }
 
 #css-imgSlider {
-    animation: 8s slidingAnimation infinite;
+    animation: 10s slidingAnimation infinite;
+}
+
+#js-imgSlider {
+    transition: transform 1s ease-in-out;
 }
 
 .left-btn {

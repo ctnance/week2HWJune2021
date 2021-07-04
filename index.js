@@ -13,6 +13,7 @@ const imgs = [
     `https://picsum.photos/${imgSize}?random=9`,
     `https://picsum.photos/${imgSize}?random=10`
 ];
+const slider = document.getElementById("js-imgSlider");
 
 const loadImages = () => {
     const jsImageSlider = document.getElementById("js-imgSlider");
@@ -58,22 +59,25 @@ const setCarouselStyle = () => {
 }
 
 const nextSlide = () => {
-    console.log("Current X Position = " + posX);
     posX -= 100;
+    // Checks if current X Position is past the maximum negative value. If true--loop to zero.
     if (posX < -maxPosX) { posX = 0; }
-    let slider = document.getElementById("js-imgSlider");
     slider.style.transform = `translateX(${posX}%)`;
-    console.log("New X Position = " + posX);
+    console.log("X Position = " + posX);
 }
 
 const prevSlide = () => {
-    console.log("Current X Position = " + posX);
     posX += 100;
+    // Checks if current X Position is greater than zero. If true--loop back to maximum negative value.
     if (posX > 0) { posX = -maxPosX; }
-    let slider = document.getElementById("js-imgSlider");
     slider.style.transform = `translateX(${posX}%)`;
-    console.log("New X Position = " + posX);
+    console.log("X Position = " + posX);
+}
+
+const animateCarousel = () => {
+    setInterval(nextSlide, 3000);
 }
 
 loadImages();
 setCarouselStyle();
+animateCarousel();
