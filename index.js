@@ -1,6 +1,6 @@
 const imgSize = 300;
-let posX = 0;
-let maxPosX = 0;
+let posX = 0; // Positions are based on percentages
+let maxPosX = 0; // Needs to initialize based on image count
 const imgs = [
     `https://picsum.photos/${imgSize}?random=1`, 
     `https://picsum.photos/${imgSize}?random=2`, 
@@ -21,10 +21,11 @@ const loadImages = () => {
     for (let i = 0; i < imgs.length; i++) {
         let img = document.createElement("img");
         img.src = imgs[i];
-        img.alt = `image${i}`;
+        img.alt = `image${i+1}`;
         
-        maxPosX = (imgs.length/2) * imgSize;
-        i < (maxPosX/imgSize) ? cssImageSlider.appendChild(img) : jsImageSlider.appendChild(img);
+        maxPosX = ((imgs.length/2) * 100) - 100;
+        console.log("MAX POS " + maxPosX);
+        i < (imgs.length/2) ? cssImageSlider.appendChild(img) : jsImageSlider.appendChild(img);
     }
     console.log("CSS Images: " + cssImageSlider.childElementCount);
     console.log("JS Images: " + jsImageSlider.childElementCount);
@@ -35,14 +36,14 @@ const setImageSize = () => {
     const jsImageSlider = document.getElementById("js-imgSlider");
     const cssImageSlider = document.getElementById("css-imgSlider");
 
-    const jsImages = jsImageSlider.getElementsByTagName('img');
-    const cssImages = cssImageSlider.getElementsByTagName('img');
+    const jsImages = jsImageSlider.getElementsByTagName("img");
+    const cssImages = cssImageSlider.getElementsByTagName("img");
 
     for (let i = 0; i < jsImages.length; i++) {
         jsImages[i].style.width = `${imgSize}px`;
         cssImages[i].style.width = `${imgSize}px`;
-        jsImages[i].alt = `image${i}`;
-        cssImages[i].alt = `image${i}`;
+        jsImages[i].alt = `image${i+1}`;
+        cssImages[i].alt = `image${i+1}`;
     }
 }
 
@@ -57,17 +58,21 @@ const setCarouselStyle = () => {
 }
 
 const nextSlide = () => {
-    posX -= imgSize;
+    console.log("Current X Position = " + posX);
+    posX -= 100;
     if (posX < -maxPosX) { posX = 0; }
     let slider = document.getElementById("js-imgSlider");
-    slider.style.transform = `translateX(${imgSize}px);`
+    slider.style.transform = `translateX(${posX}%)`;
+    console.log("New X Position = " + posX);
 }
 
 const prevSlide = () => {
-    console.log(imgSize);
-    let carousel = document.getElementById("js-imgSlider");
-    console.log("HERE: " + carousel.style.transform);
-    carousel.style.transform -= `translateX(${imgSize}px);`
+    console.log("Current X Position = " + posX);
+    posX += 100;
+    if (posX > 0) { posX = -maxPosX; }
+    let slider = document.getElementById("js-imgSlider");
+    slider.style.transform = `translateX(${posX}%)`;
+    console.log("New X Position = " + posX);
 }
 
 loadImages();

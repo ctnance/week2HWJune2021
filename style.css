@@ -8,11 +8,16 @@ html {
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: lemonchiffon;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
     align-items: center;
     margin: 0;
 }
@@ -65,7 +70,7 @@ button:hover {
 button:active {
     color: hsl(0, 0%, 50%);
     transform: translateY(2px);
-    text-shadow: 1px 1px hsla(0, 0%, 20%, 0.5);
+    text-shadow: none;
 }
 
 #css-imgSlider, #js-imgSlider {
@@ -74,7 +79,7 @@ button:active {
 }
 
 #css-imgSlider {
-    animation: 10s slidingAnimation infinite;
+    animation: 8s slidingAnimation infinite;
 }
 
 .left-btn {
@@ -92,10 +97,9 @@ button:active {
 /* Keyframes */
 
 @keyframes slidingAnimation {
-    0% { transition: ease-in; transform: translateX(0); }
-    20% { transition: ease-in; transform: translateX(-300px); }
-    40% { transition: ease-in; transform: translateX(-600px); }
-    60% { transition: ease-in; transform: translateX(-900px); }
-    80% { transition: ease-in; transform: translateX(-1200px); }
-    100% { transition: ease-in; transform: translateX(-1500px); }
+    0% { transition: ease-in-out; transform: translateX(0); }
+    25% { transition: ease-in-out; transform: translateX(-300px); }
+    50% { transition: ease-in-out; transform: translateX(-600px); }
+    75% { transition: ease-in-out; transform: translateX(-900px); }
+    100% { transition: ease-in-out; transform: translateX(-1200px); }
 }
