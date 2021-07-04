@@ -19,11 +19,28 @@ const loadImages = () => {
     for (let i = 0; i < imgs.length; i++) {
         let img = document.createElement("img");
         img.src = imgs[i];
+        img.alt = `image${i}`;
         
         i < imgs.length/2 ? cssImageSlider.appendChild(img) : jsImageSlider.appendChild(img);
     }
     console.log("CSS Images: " + cssImageSlider.childElementCount);
     console.log("JS Images: " + jsImageSlider.childElementCount);
+}
+
+// Sets image size for local images
+const setImageSize = () => {
+    const jsImageSlider = document.getElementById("js-imgSlider");
+    const cssImageSlider = document.getElementById("css-imgSlider");
+
+    const jsImages = jsImageSlider.getElementsByTagName('img');
+    const cssImages = cssImageSlider.getElementsByTagName('img');
+
+    for (let i = 0; i < jsImages.length; i++) {
+        jsImages[i].style.width = `${imgSize}px`;
+        cssImages[i].style.width = `${imgSize}px`;
+        jsImages[i].alt = `image${i}`;
+        cssImages[i].alt = `image${i}`;
+    }
 }
 
 const setCarouselStyle = () => {
@@ -39,11 +56,14 @@ const setCarouselStyle = () => {
 const nextSlide = () => {
     console.log(imgSize);
     let carousel = document.getElementById("js-imgSlider");
-    carousel.style.transform = `translateX(${imgSize}px);`
+    carousel.style.transform -= `translateX(${imgSize}px);`
 }
 
 const prevSlide = () => {
     console.log(imgSize);
+    let carousel = document.getElementById("js-imgSlider");
+    console.log("HERE: " + carousel.style.transform);
+    carousel.style.transform -= `translateX(${imgSize}px);`
 }
 
 loadImages();
