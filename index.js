@@ -75,7 +75,7 @@ const prevSlide = () => {
 }
 
 const animateCarousel = () => {
-    setInterval(nextSlide, 3000);
+    setInterval(nextSlide, 6000);
 }
 
 loadImages();
