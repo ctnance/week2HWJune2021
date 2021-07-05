@@ -4,10 +4,6 @@
     font-size: 16px;
 }
 
-html {
-    box-sizing: border-box;
-}
-
 html, body {
     height: 100%;
 }
@@ -20,10 +16,6 @@ body {
     align-content: center;
     align-items: center;
     margin: 0;
-}
-
-* {
-    box-sizing: inherit;
 }
 
 section {
@@ -43,7 +35,6 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 300px;
     position: relative;
 }
 
@@ -64,7 +55,7 @@ button {
     color: white;
     border: none;
     font-size: 3rem;
-    text-shadow: 3px 3px hsla(0, 0%, 20%, 0.5);
+    text-shadow: 3px 3px hsla(0, 0%, 20%, 0.75);
 }
 
 button:hover {

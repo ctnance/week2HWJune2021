@@ -34,18 +34,21 @@ const loadImages = () => {
 
 // Sets image size for local images
 const setImageSize = () => {
-    const jsImageSlider = document.getElementById("js-imgSlider");
     const cssImageSlider = document.getElementById("css-imgSlider");
+    const jsImageSlider = document.getElementById("js-imgSlider");
 
-    const jsImages = jsImageSlider.getElementsByTagName("img");
     const cssImages = cssImageSlider.getElementsByTagName("img");
+    const jsImages = jsImageSlider.getElementsByTagName("img");
 
     for (let i = 0; i < jsImages.length; i++) {
-        jsImages[i].style.width = `${imgSize}px`;
         cssImages[i].style.width = `${imgSize}px`;
-        jsImages[i].alt = `image${i+1}`;
+        jsImages[i].style.width = `${imgSize}px`;
         cssImages[i].alt = `image${i+1}`;
+        jsImages[i].alt = `image${i+1}`;
     }
+
+    cssImageSlider.style.width = `${imgSize}`;
+    jsImageSlider.style.width = `${imgSize}`;
 }
 
 const setCarouselStyle = () => {
